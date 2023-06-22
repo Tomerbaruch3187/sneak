@@ -20,44 +20,33 @@ let points = 0;
 
 // עדכון הTIMER
 let intervalTime;
+let counter = 9;
+let timer = document.querySelector(".time");
 
 function timerStart() {
-    let timer = document.querySelector(".time");
-    let counter = 30;
 
-
-    function startInterval() {
-        intervalTime = setInterval(() => {
-            timer.innerHTML = counter;
-            if (counter < 1) {
-                clearInterval(intervalTime);
-                isGameOver = true;
-                gameOver();
-                return;
-            } else {
-                counter--;
-            }
-        }, 1000);
-    }
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            if (!isGameOver) {
-                clearInterval(intervalTime);
-                counter = 29;
-            }
-            startInterval();
+    intervalTime = setInterval(() => {
+        timer.innerHTML = counter;
+        if (counter < 1) {
+            clearInterval(intervalTime);
+            isGameOver = true;
+            gameOver();
+            return;
+        } else {
+            counter--;
         }
-    });
+    }, 1000);
 }
-
-timerStart();
-
-
-document.addEventListener('keydown', () => {
-    timerStart();
-    return;
-})
+// timerStart();
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        if (!isGameOver) {
+            clearInterval(intervalTime);
+            counter = 29;
+        }
+        startInterval();
+    }
+});
 
 // גבולות ימין
 for (let i = 0; i < height; i++) {
@@ -176,7 +165,9 @@ function move(dir) {
     snake.unshift(head);
 
     if (random == head) {
-
+        clearInterval(intervalTime)
+        counter = 10;
+        timerStart()
         const audio = document.createElement('audio');
         audio.src = "Pebble.ogg";
         audio.volume = 0.2;
