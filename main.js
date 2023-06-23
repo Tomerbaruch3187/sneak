@@ -13,6 +13,7 @@ let random;
 const rightBoundaries = [];
 const leftBoundaries = [];
 
+
 // עדכון הSCORE
 const score = document.querySelector('.points');
 let points = 0;
@@ -211,15 +212,25 @@ function setRandom() {
 function gameOver() {
     isGameOver = true;
     clearInterval(interval);
+    clearInterval(intervalTime);
+
 
     const audio = document.createElement('audio');
     audio.src = "Country_Blues.ogg";
     audio.volume = 0.1;
     audio.play();
 
+
+
     setTimeout(() => {
-        alert("Game over");
-        location.reload();
+        const gameOverDiv = document.querySelector('#you-lost');
+        gameOverDiv.style.opacity = '1';
+
+        const btnReset = document.querySelector(".btn-reset");
+        btnReset.addEventListener('click', () => {
+            location.reload();
+        });
+
     }, 200);
 }
 

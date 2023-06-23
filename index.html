@@ -7,25 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="button.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script defer src="main.js" defer></script>
 </head>
 
 <body onload="createBoard()">
-    <h1>🍅נייק</h1>
+
+    <div id="you-lost">
+        <div class="btn-reset">לחץ למשחק חדש</div>
+    </div>
+
+    </div>
+    <h1>סנייק</h1>
     <div class="continerData">
         <div class="score">
+            <div>תוצאה:</div>
             <div class="points">0</div>
-            <div>:SCORE</div>
+
 
             <div class="time">10</div>
-            <div class="timer">:Timer</div>
+            <div class="timer">⏳</div>
         </div>
     </div>
 
 
     <div class="frame">
-        <div class="enter">Prees "Enter" to start the timer*</div>
+        <div class="enter"></div>
         <div class="board"></div>
     </div>
 </body>

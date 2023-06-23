@@ -1,0 +1,38 @@
+.btn-reset {
+    --b: 3px;
+    --s: .45em;
+    --color: #25810d;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    width: 130px;
+    cursor: pointer;
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+        conic-gradient(from 90deg at var(--b) var(--b), #d3141400 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline-offset: .7em;
+    font-size: 12px;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.btn-reset:hover,
+.btn-reset:focus-visible {
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+}
+
+.btn-reset:active {
+    background: var(--color);
+    color: #fff;
+}
+
+.btn-reset {
+    color: rgb(0, 0, 0);
+}
